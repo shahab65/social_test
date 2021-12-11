@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Menu } from "../icons/index";
+import { ReactComponent as Search } from "assets/images/search.svg";
 import Avatar from "@mui/material/Avatar";
 import avatar from "assets/images/avatar.png";
 import Typography from "@mui/material/Typography";
@@ -20,7 +20,7 @@ const UserInfo = (props: Props) => {
   const {} = props;
   return (
     <Wrapper>
-      <Menu />
+      <Search />
       <Box>
         <UserAccountInfo />
       </Box>
