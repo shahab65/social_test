@@ -17,12 +17,6 @@ const UserAccountInfo = (props: Props) => {
   const {} = props;
   return (
     <UserView>
-      <Avatar
-        alt={"user profile"}
-        src={avatar}
-        style={{ width: 37, height: 37 }}
-      />
-
       <Box sx={{ padding: "0 8px" }}>
         <Typography sx={{ fontWeight: "bold", fontSize: 14 }}>
           ali2132
@@ -30,7 +24,11 @@ const UserAccountInfo = (props: Props) => {
 
         <Typography sx={{ fontSize: 12 }}>Morteza hashemian</Typography>
       </Box>
-      <div>arrow</div>
+      <Avatar
+        alt={"user profile"}
+        src={avatar}
+        style={{ width: 37, height: 37 }}
+      />
     </UserView>
   );
 };

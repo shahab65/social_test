@@ -19,7 +19,6 @@ const Header = (props: Props) => {
   return (
     <Wrapper>
       <UserInfo />
-      <WalletCard />
     </Wrapper>
   );
 };

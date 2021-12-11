@@ -21,7 +21,7 @@ const UserInfo = (props: Props) => {
   return (
     <Wrapper>
       <Menu />
-      <Box sx={{ direction: "ltr" }}>
+      <Box>
         <UserAccountInfo />
       </Box>
     </Wrapper>
