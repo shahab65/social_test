@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'Daricheh';
+  src:
+    url('fonts/Daricheh.ttf?l8xggn') format('truetype'),
+    url('fonts/Daricheh.woff?l8xggn') format('woff'),
+    url('fonts/Daricheh.svg?l8xggn#Daricheh') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="daricheh-"], [class*=" daricheh-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Daricheh' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.daricheh-alert-circle:before {
+  content: "\e900";
+}
+.daricheh-arrow-left:before {
+  content: "\e901";
+}
+.daricheh-arrow-right:before {
+  content: "\e902";
+}
+.daricheh-check:before {
+  content: "\e903";
+}
+.daricheh-chevron-down:before {
+  content: "\e904";
+}
+.daricheh-chevron-left:before {
+  content: "\e905";
+}
+.daricheh-chevron-left-thick:before {
+  content: "\e906";
+}
+.daricheh-circle:before {
+  content: "\e907";
+}
+.daricheh-close-circle:before {
+  content: "\e908";
+}
+.daricheh-dashed-line:before {
+  content: "\e909";
+}
+.daricheh-filter:before {
+  content: "\e90a";
+}
+.daricheh-grid:before {
+  content: "\e90b";
+}
+.daricheh-info-circle:before {
+  content: "\e90c";
+}
+.daricheh-insta:before {
+  content: "\e90d";
+}
+.daricheh-like:before {
+  content: "\e90e";
+}
+.daricheh-line:before {
+  content: "\e90f";
+}
+.daricheh-menu:before {
+  content: "\e910";
+}
+.daricheh-mobile:before {
+  content: "\e911";
+}
+.daricheh-more:before {
+  content: "\e912";
+}
+.daricheh-more-vertical:before {
+  content: "\e913";
+}
+.daricheh-plus:before {
+  content: "\e914";
+}
+.daricheh-plus-circle:before {
+  content: "\e915";
+}
+.daricheh-search:before {
+  content: "\e916";
+}
+.daricheh-star:before {
+  content: "\e917";
+}
+.daricheh-trash:before {
+  content: "\e918";
+}
