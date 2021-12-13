@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import AddConnectionPathForm from "./AddConnectionPathForm";
 import Collapse from "@mui/material/Collapse";
 import useToggle from "hooks/useToggle";
+import Button from "@mui/material/Button";
 
 import { Plus } from "components/icons";
 type Props = {};
@@ -15,15 +16,16 @@ const AddConnectionPath = (props: Props) => {
   };
   return (
     <Box>
-      <Typography sx={{}} onClick={onToggleForm}>
-        <Plus />
+      <Button
+        sx={{ color: "orange", mb: 2 }}
+        onClick={onToggleForm}
+        startIcon={<Plus />}
+      >
         افزودن مسیر ارتباطی
-      </Typography>
+      </Button>
 
       <Collapse in={isFormOpen}>
-        <Box sx={{ p: 2, background: "red" }}>
-          <AddConnectionPathForm />
-        </Box>
+        <AddConnectionPathForm />
       </Collapse>
     </Box>
   );
