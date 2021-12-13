@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import UserInfo from "components/UserInfo/UserInfo";
-import WalletCard from "components/WalletCard/WalletCard";
 
 type StyleProps = {};
 
