@@ -11,7 +11,7 @@ type StyleProps = {};
 const Wrapper = styled.div<StyleProps>`
   display: flex;
   justify-content: space-between;
-  padding-bottom: 22px;
+  margin-bottom: 22px;
 `;
 
 type Props = {};
