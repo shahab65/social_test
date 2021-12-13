@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
-import Header from "components/Header/Header";
+import PageHeader from "components/PageHeader/PageHeader";
 import PageTitle from "components/PageTitle/PageTitle";
+import PageBody from "components/PageBody/PageBody";
 
 const UserAccount = () => {
-  const [value, setValue] = useState("");
   return (
     <Box sx={{ background: "#fff", height: "100%" }}>
-      <Header />
+      <PageHeader />
       <PageTitle />
+      <PageBody />
     </Box>
   );
 };

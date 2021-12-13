@@ -13,7 +13,7 @@ const Wrapper = styled.div<StyleProps>`
 
 type Props = {};
 
-const Header = (props: Props) => {
+const PageHeader = (props: Props) => {
   const {} = props;
   return (
     <Wrapper>
@@ -21,4 +21,4 @@ const Header = (props: Props) => {
     </Wrapper>
   );
 };
-export default Header;
+export default PageHeader;
