@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import AddConnectionPath from "components/AddConnectionPath/AddConnectionPath";
-import SocialLinkItem from "components/SocialLinkItem/SocialLinkItem";
+import SocialLinkList from "components/SocialLinkList/SocialLinkList";
 import { useSocialLinks } from "api/calls";
 type Props = {};
 
@@ -16,7 +16,7 @@ const PageBody = (props: Props) => {
         مسیر های ارتباطی
       </Typography>
       <AddConnectionPath />
-      <SocialLinkItem />
+      <SocialLinkList data={data || []} />
     </Box>
   );
 };

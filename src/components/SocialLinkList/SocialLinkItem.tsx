@@ -4,11 +4,14 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { Plus } from "components/icons";
 import Link from "@mui/material/Link";
+import { SocialLink } from "api/types";
 
-type Props = {};
+type Props = {
+  link: SocialLink;
+};
 
 const SocialLinkItem = (props: Props) => {
-  const {} = props;
+  const { link } = props;
   return (
     <Box
       sx={{
@@ -23,10 +26,10 @@ const SocialLinkItem = (props: Props) => {
         <Box>twiter</Box>
         <Typography>تویتر</Typography>
         <Typography>آیدی (ID)</Typography>
-        <Typography>@mhossiamher</Typography>
+        <Typography>{link.social_id}</Typography>
         <Typography>لینک:</Typography>
-        <Link href="#" underline="none">
-          https://twitter.com/mhossinher
+        <Link href={link.social_link} underline="none">
+          {link.social_link}
         </Link>
       </Stack>
       <Box>
