@@ -8,10 +8,11 @@ import { SocialLink } from "api/types";
 
 type Props = {
   link: SocialLink;
+  onDeleteLink: (id: string) => void;
 };
 
 const SocialLinkItem = (props: Props) => {
-  const { link } = props;
+  const { link, onDeleteLink } = props;
   return (
     <Box
       sx={{
@@ -42,7 +43,7 @@ const SocialLinkItem = (props: Props) => {
         </Button>
         <Button
           sx={{ color: "orange", mb: 2 }}
-          //   onClick={onToggleForm}
+          onClick={() => onDeleteLink(link.id)}
           startIcon={<Plus />}
         >
           حذف

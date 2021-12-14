@@ -20,7 +20,10 @@ const PageBody = (props: Props) => {
         مسیر های ارتباطی
       </Typography>
       <AddConnectionPath refetchSocialLinks={refetchSocialLinks} />
-      <SocialLinkList data={data || []} />
+      <SocialLinkList
+        data={data || []}
+        refetchSocialLinks={refetchSocialLinks}
+      />
     </Box>
   );
 };
