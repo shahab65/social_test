@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
@@ -9,16 +10,23 @@ import linkOptions from "constants/linkOptions";
 import Axios from "api/Axios";
 import { useMutation } from "react-query";
 import { useFormik } from "formik";
+import { SocialLink } from "../../api/types";
 
 type Props = {
   onToggleForm: () => void;
   refetchSocialLinks: () => void;
+  editItem: SocialLink | null;
 };
 
 const AddConnectionPathForm = (props: Props) => {
-  const { onToggleForm, refetchSocialLinks } = props;
+  const { onToggleForm, refetchSocialLinks, editItem } = props;
+  console.log(`editItem`, editItem);
   const formik = useFormik({
-    initialValues: { type: "", social_link: "", social_id: "" },
+    initialValues: {
+      type: "",
+      social_link: "",
+      social_id: "",
+    },
     validate: (values) => {
       const errors: {
         type?: string;
@@ -31,7 +39,8 @@ const AddConnectionPathForm = (props: Props) => {
       return errors;
     },
     onSubmit: (values) => {
-      mutation.mutate(values);
+      if (editItem) edition.mutate(values);
+      else mutation.mutate(values);
     },
   });
   const {
@@ -43,12 +52,18 @@ const AddConnectionPathForm = (props: Props) => {
     handleSubmit,
     isSubmitting,
     resetForm,
+    setValues,
     /* and other goodies */
   } = formik;
   const onClose = () => {
     resetForm();
     onToggleForm();
   };
+  useEffect(() => {
+    if (editItem) {
+      setValues(editItem);
+    }
+  }, [editItem]);
   const mutation = useMutation(
     (sc: { social_link: string; social_id: string }) => {
       return Axios.post("/socials", sc);
@@ -60,6 +75,19 @@ const AddConnectionPathForm = (props: Props) => {
       },
     }
   );
+
+  const edition = useMutation(
+    (sc: { social_link: string; social_id: string }) => {
+      return Axios.patch(`/socials/${editItem?.id}`, sc);
+    },
+    {
+      onSuccess: () => {
+        refetchSocialLinks();
+        onClose();
+      },
+    }
+  );
+
   return (
     <Box sx={{ p: 2, border: "1px solid black" }}>
       <Typography sx={{ fontSize: 14 }}>افزودن مسیر ارتباطی</Typography>

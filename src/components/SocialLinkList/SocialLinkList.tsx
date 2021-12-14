@@ -1,15 +1,16 @@
 import SocialLinkItem from "./SocialLinkItem";
-import { SocialLinks } from "api/types";
+import { SocialLinks, SocialLink } from "api/types";
 import Axios from "api/Axios";
 import { useMutation } from "react-query";
 
 type Props = {
   data: SocialLinks | undefined;
   refetchSocialLinks: () => void;
+  setEditItem: (item: SocialLink) => void;
 };
 
 const SocialLinkList = (props: Props) => {
-  const { data, refetchSocialLinks } = props;
+  const { data, refetchSocialLinks, setEditItem } = props;
   const mutation = useMutation(
     (id: string) => {
       return Axios.delete(`/socials/${id}`);
@@ -33,6 +34,7 @@ const SocialLinkList = (props: Props) => {
             link={socialLink}
             key={socialLink.id}
             onDeleteLink={onDeleteLink}
+            setEditItem={setEditItem}
           />
         );
       })}

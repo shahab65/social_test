@@ -10,10 +10,11 @@ import { getSocialLinkName } from "../../utils";
 type Props = {
   link: SocialLink;
   onDeleteLink: (id: string) => void;
+  setEditItem: (item: SocialLink) => void;
 };
 
 const SocialLinkItem = (props: Props) => {
-  const { link, onDeleteLink } = props;
+  const { link, onDeleteLink, setEditItem } = props;
   return (
     <Box
       sx={{
@@ -37,7 +38,7 @@ const SocialLinkItem = (props: Props) => {
       <Box>
         <Button
           sx={{ color: "orange", mb: 2 }}
-          //   onClick={onToggleForm}
+          onClick={() => setEditItem(link)}
           startIcon={<Plus />}
         >
           ویرایش
