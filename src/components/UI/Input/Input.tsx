@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Box from "@mui/material/Box";
 import { ArrowRight } from "../../icons";
 import { ReactComponent as InstagramLogo } from "assets/images/instagram.svg";
-import useOnClickOutside from "utils/hooks/useOnClickOutside";
+import useOnClickOutside from "hooks/useOnClickOutside";
 import { Wrapper, Placeholder, Title, StyledInput } from "./styles";
 
 type Props = {
