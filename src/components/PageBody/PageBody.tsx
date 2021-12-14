@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import AddConnectionPath from "components/AddConnectionPath/AddConnectionPath";
+import SocialLinkItem from "components/SocialLinkItem/SocialLinkItem";
 type Props = {};
 
 const PageBody = (props: Props) => {
@@ -11,6 +12,7 @@ const PageBody = (props: Props) => {
         مسیر های ارتباطی
       </Typography>
       <AddConnectionPath />
+      <SocialLinkItem />
     </Box>
   );
 };

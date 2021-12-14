@@ -15,7 +15,7 @@ const AddConnectionPath = (props: Props) => {
     setIsFormOpen();
   };
   return (
-    <Box>
+    <Box sx={{ mb: 2 }}>
       <Button
         sx={{ color: "orange", mb: 2 }}
         onClick={onToggleForm}
