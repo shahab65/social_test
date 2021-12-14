@@ -1,9 +1,6 @@
-import { useEffect } from "react";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import AddConnectionPathForm from "./AddConnectionPathForm";
 import Collapse from "@mui/material/Collapse";
-import useToggle from "hooks/useToggle";
 import Button from "@mui/material/Button";
 
 import { Plus } from "components/icons";
