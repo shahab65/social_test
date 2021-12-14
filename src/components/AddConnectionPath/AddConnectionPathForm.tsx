@@ -6,7 +6,9 @@ import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import { Formik } from "formik";
 
-type Props = {};
+type Props = {
+  onToggleForm: () => void;
+};
 const currencies = [
   {
     value: "USD",
@@ -34,7 +36,7 @@ const currencies = [
   },
 ];
 const AddConnectionPathForm = (props: Props) => {
-  const {} = props;
+  const { onToggleForm } = props;
   return (
     <Box sx={{ p: 2, border: "1px solid black" }}>
       <Typography sx={{ fontSize: 14 }}>افزودن مسیر ارتباطی</Typography>
@@ -66,69 +68,74 @@ const AddConnectionPathForm = (props: Props) => {
           handleBlur,
           handleSubmit,
           isSubmitting,
+          handleReset,
           /* and other goodies */
-        }) => (
-          <form onSubmit={handleSubmit}>
-            <Stack
-              direction="row"
-              justifyContent="space-evenly"
-              alignItems="center"
-              spacing={1}
-              mb={2}
-            >
-              {values.type}
-              {values.link}
-              {values.id}
-              <TextField
-                label="نوع"
-                variant="outlined"
-                select
-                fullWidth
-                value={values.type}
-                name={"type"}
-                onChange={handleChange}
+        }) => {
+          const onCancelClick = () => {
+            handleReset();
+            onToggleForm();
+          };
+          return (
+            <form onSubmit={handleSubmit}>
+              <Stack
+                direction="row"
+                justifyContent="space-evenly"
+                alignItems="center"
+                spacing={1}
+                mb={2}
               >
-                {currencies.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
+                <TextField
+                  label="نوع"
+                  variant="outlined"
+                  select
+                  fullWidth
+                  value={values.type}
+                  name={"type"}
+                  onChange={handleChange}
+                >
+                  {currencies.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
 
-              <TextField
-                label="لینک"
-                variant="outlined"
-                fullWidth
-                name={"link"}
-                value={values.link}
-                onChange={handleChange}
-              />
+                <TextField
+                  label="لینک"
+                  variant="outlined"
+                  fullWidth
+                  name={"link"}
+                  value={values.link}
+                  onChange={handleChange}
+                />
 
-              <TextField
-                label="آی دی (ID)"
-                variant="outlined"
-                fullWidth
-                name={"id"}
-                value={values.id}
-                onChange={handleChange}
-              />
-            </Stack>
-            <Stack direction="row-reverse" spacing={1}>
-              <Button
-                // onClick={onToggleForm}
-                variant="contained"
-              >
-                ویرایش مسیر ارتباطی تویتر
-              </Button>
-              <Button
-                // onClick={onToggleForm}
-                variant="outlined"
-              >
-                انصراف
-              </Button>
-            </Stack>
-          </form>
-        )}
+                <TextField
+                  label="آی دی (ID)"
+                  variant="outlined"
+                  fullWidth
+                  name={"id"}
+                  value={values.id}
+                  onChange={handleChange}
+                />
+              </Stack>
+              <Stack direction="row-reverse" spacing={1}>
+                <Button
+                  // onClick={onToggleForm}
+                  variant="contained"
+                >
+                  ویرایش مسیر ارتباطی تویتر
+                </Button>
+                <Button
+                  // onClick={onToggleForm}
+                  variant="outlined"
+                  onClick={onCancelClick}
+                >
+                  انصراف
+                </Button>
+              </Stack>
+            </form>
+          );
+        }}
       </Formik>
     </Box>
   );

@@ -25,7 +25,7 @@ const AddConnectionPath = (props: Props) => {
       </Button>
 
       <Collapse in={isFormOpen}>
-        <AddConnectionPathForm />
+        <AddConnectionPathForm onToggleForm={onToggleForm} />
       </Collapse>
     </Box>
   );
