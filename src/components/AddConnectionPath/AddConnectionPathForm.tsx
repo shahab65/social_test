@@ -5,36 +5,11 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import { Formik } from "formik";
-
+import linkOptions from "constants/linkOptions";
 type Props = {
   onToggleForm: () => void;
 };
-const currencies = [
-  {
-    value: "USD",
-    label: "اینستاگرام",
-  },
-  {
-    value: "EUR",
-    label: "فیسبوک",
-  },
-  {
-    value: "BTC",
-    label: "تلگرام",
-  },
-  {
-    value: "JPY",
-    label: "تویتر",
-  },
-  {
-    value: "JPY",
-    label: "لینکداین",
-  },
-  {
-    value: "JPY",
-    label: "وب‌سایت",
-  },
-];
+
 const AddConnectionPathForm = (props: Props) => {
   const { onToggleForm } = props;
   return (
@@ -93,7 +68,7 @@ const AddConnectionPathForm = (props: Props) => {
                   name={"type"}
                   onChange={handleChange}
                 >
-                  {currencies.map((option) => (
+                  {linkOptions.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
                       {option.label}
                     </MenuItem>
