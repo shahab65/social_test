@@ -9,7 +9,7 @@ export function useSocialLinks() {
     {
       retry: 0,
       refetchOnWindowFocus: false,
-      cacheTime: Infinity,
+      cacheTime: 0,
       staleTime: Infinity,
       // onSuccess: (res) => {
       //   store.dispatch(actions.setMyBills(res));

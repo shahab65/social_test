@@ -8,17 +8,22 @@ import { Formik } from "formik";
 import linkOptions from "constants/linkOptions";
 import Axios from "api/Axios";
 import { useMutation } from "react-query";
-import { SocialLink } from "api/types";
 
 type Props = {
   onToggleForm: () => void;
+  refetchSocialLinks: () => void;
 };
 
 const AddConnectionPathForm = (props: Props) => {
-  const { onToggleForm } = props;
+  const { onToggleForm, refetchSocialLinks } = props;
   const mutation = useMutation(
     (sc: { social_link: string; social_id: string }) => {
       return Axios.post("/socials", sc);
+    },
+    {
+      onSuccess: () => {
+        refetchSocialLinks();
+      },
     }
   );
   return (

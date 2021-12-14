@@ -6,10 +6,12 @@ import useToggle from "hooks/useToggle";
 import Button from "@mui/material/Button";
 
 import { Plus } from "components/icons";
-type Props = {};
+type Props = {
+  refetchSocialLinks: () => void;
+};
 
 const AddConnectionPath = (props: Props) => {
-  const {} = props;
+  const { refetchSocialLinks } = props;
   const [isFormOpen, setIsFormOpen] = useToggle();
   const onToggleForm = () => {
     setIsFormOpen();
@@ -25,7 +27,10 @@ const AddConnectionPath = (props: Props) => {
       </Button>
 
       <Collapse in={isFormOpen}>
-        <AddConnectionPathForm onToggleForm={onToggleForm} />
+        <AddConnectionPathForm
+          onToggleForm={onToggleForm}
+          refetchSocialLinks={refetchSocialLinks}
+        />
       </Collapse>
     </Box>
   );
