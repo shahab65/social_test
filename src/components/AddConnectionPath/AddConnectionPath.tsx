@@ -5,12 +5,14 @@ import Button from "@mui/material/Button";
 
 import { Plus } from "components/icons";
 import { SocialLink } from "../../api/types";
+import { SocialLinks } from "api/types";
 type Props = {
   refetchSocialLinks: () => void;
   editItem: SocialLink | null;
   isFormOpen: boolean;
   onToggleForm: () => void;
   setEditItem: (item: SocialLink | null) => void;
+  data: SocialLinks | undefined;
 };
 
 const AddConnectionPath = (props: Props) => {
@@ -20,6 +22,7 @@ const AddConnectionPath = (props: Props) => {
     isFormOpen,
     onToggleForm,
     setEditItem,
+    data,
   } = props;
 
   const actionText = () => {
@@ -42,6 +45,7 @@ const AddConnectionPath = (props: Props) => {
           refetchSocialLinks={refetchSocialLinks}
           editItem={editItem}
           setEditItem={setEditItem}
+          data={data}
         />
       </Collapse>
     </Box>

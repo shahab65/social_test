@@ -12,16 +12,19 @@ import { useMutation } from "react-query";
 import { useFormik } from "formik";
 import { SocialLink } from "../../api/types";
 import { getSocialLinkName } from "utils";
+import { SocialLinks } from "api/types";
 
 type Props = {
   onToggleForm: () => void;
   refetchSocialLinks: () => void;
   editItem: SocialLink | null;
   setEditItem: (item: SocialLink | null) => void;
+  data: SocialLinks | undefined;
 };
 
 const AddConnectionPathForm = (props: Props) => {
-  const { onToggleForm, refetchSocialLinks, editItem, setEditItem } = props;
+  const { onToggleForm, refetchSocialLinks, editItem, setEditItem, data } =
+    props;
   console.log(`editItem`, editItem);
   const formik = useFormik({
     initialValues: {
@@ -38,6 +41,18 @@ const AddConnectionPathForm = (props: Props) => {
       if (!values.type) errors.type = "مورد نیاز";
       if (!values.social_link) errors.social_link = "مورد نیاز";
       if (!values.social_id) errors.social_id = "مورد نیاز";
+      if (
+        data?.find(
+          (item) => item.social_link === values.social_link && !editItem
+        )
+      ) {
+        errors.social_link = "تکراری";
+      }
+      if (
+        data?.find((item) => item.social_id === values.social_id && !editItem)
+      ) {
+        errors.social_id = "تکراری";
+      }
       return errors;
     },
     onSubmit: (values) => {
