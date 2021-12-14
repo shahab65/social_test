@@ -11,6 +11,7 @@ import Axios from "api/Axios";
 import { useMutation } from "react-query";
 import { useFormik } from "formik";
 import { SocialLink } from "../../api/types";
+import { getSocialLinkName } from "utils";
 
 type Props = {
   onToggleForm: () => void;
@@ -89,7 +90,11 @@ const AddConnectionPathForm = (props: Props) => {
       },
     }
   );
-
+  const buttonText = () => {
+    if (editItem)
+      return `ویرایش مسیر ارتباطی ${getSocialLinkName(editItem.type)}`;
+    return "ثبت مسیر ارتباطی";
+  };
   return (
     <Box sx={{ p: 2, border: "1px solid black" }}>
       <Typography sx={{ fontSize: 14 }}>افزودن مسیر ارتباطی</Typography>
@@ -144,7 +149,7 @@ const AddConnectionPathForm = (props: Props) => {
             variant="contained"
             type={"submit"}
           >
-            ویرایش مسیر ارتباطی تویتر
+            {buttonText()}
           </Button>
           <Button
             // onClick={onToggleForm}

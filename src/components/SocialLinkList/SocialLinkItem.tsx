@@ -34,7 +34,6 @@ const SocialLinkItem = (props: Props) => {
       }}
     >
       <Stack direction="row" spacing={1}>
-        <Box>twiter</Box>
         <Typography>{getSocialLinkName(link.type)}</Typography>
         <Typography>آیدی (ID)</Typography>
         <Typography>{link.social_id}</Typography>
