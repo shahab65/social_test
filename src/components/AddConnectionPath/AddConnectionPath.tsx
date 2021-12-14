@@ -13,10 +13,17 @@ type Props = {
   editItem: SocialLink | null;
   isFormOpen: boolean;
   onToggleForm: () => void;
+  setEditItem: (item: SocialLink | null) => void;
 };
 
 const AddConnectionPath = (props: Props) => {
-  const { refetchSocialLinks, editItem, isFormOpen, onToggleForm } = props;
+  const {
+    refetchSocialLinks,
+    editItem,
+    isFormOpen,
+    onToggleForm,
+    setEditItem,
+  } = props;
 
   const actionText = () => {
     if (editItem) return "ویراش مسیر ارتباطی";
@@ -37,6 +44,7 @@ const AddConnectionPath = (props: Props) => {
           onToggleForm={onToggleForm}
           refetchSocialLinks={refetchSocialLinks}
           editItem={editItem}
+          setEditItem={setEditItem}
         />
       </Collapse>
     </Box>

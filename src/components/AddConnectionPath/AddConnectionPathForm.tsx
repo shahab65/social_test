@@ -16,10 +16,11 @@ type Props = {
   onToggleForm: () => void;
   refetchSocialLinks: () => void;
   editItem: SocialLink | null;
+  setEditItem: (item: SocialLink | null) => void;
 };
 
 const AddConnectionPathForm = (props: Props) => {
-  const { onToggleForm, refetchSocialLinks, editItem } = props;
+  const { onToggleForm, refetchSocialLinks, editItem, setEditItem } = props;
   console.log(`editItem`, editItem);
   const formik = useFormik({
     initialValues: {
@@ -58,6 +59,7 @@ const AddConnectionPathForm = (props: Props) => {
   const onClose = () => {
     resetForm();
     onToggleForm();
+    setEditItem(null);
   };
   useEffect(() => {
     if (editItem) {

@@ -38,6 +38,7 @@ const PageBody = (props: Props) => {
         editItem={editItem}
         isFormOpen={isFormOpen}
         onToggleForm={onToggleForm}
+        setEditItem={setEditItem}
       />
       <SocialLinkList
         data={data || []}
