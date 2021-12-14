@@ -5,11 +5,9 @@ import Typography from "@mui/material/Typography";
 const Breads = () => {
   return (
     <Breadcrumbs separator=".">
-      <Typography sx={{ fontSize: 11, color: "black" }}>خانه</Typography>
-      <Typography sx={{ fontSize: 11, color: "black" }}>کاربر</Typography>
-      <Typography sx={{ fontSize: 11, color: "grey" }}>
-        تنظیمات کاربری
-      </Typography>
+      <Typography sx={{ fontSize: 11 }}>خانه</Typography>
+      <Typography sx={{ fontSize: 11 }}>کاربر</Typography>
+      <Typography sx={{ fontSize: 11 }}>تنظیمات کاربری</Typography>
     </Breadcrumbs>
   );
 };

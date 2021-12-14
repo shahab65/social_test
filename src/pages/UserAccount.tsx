@@ -8,7 +8,7 @@ const UserAccount = () => {
   return (
     <Box
       sx={{
-        background: "#fff",
+        // bgcolor: "primary.main",
         height: "100%",
         display: "flex",
         justifyContent: "center",

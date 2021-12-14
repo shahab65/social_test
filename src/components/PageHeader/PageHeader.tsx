@@ -4,7 +4,7 @@ import UserInfo from "components/UserInfo/UserInfo";
 type StyleProps = {};
 
 const Wrapper = styled.div<StyleProps>`
-  background: linear-gradient(to top, #2464d7, #4b8cff);
+  /* background: linear-gradient(to top, #2464d7, #4b8cff); */
   padding: 20px 16px 24px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;

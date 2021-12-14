@@ -6,13 +6,7 @@ import jalaliday from "jalaliday";
 import { QueryClient, QueryClientProvider } from "react-query";
 import RouteList from "./routes";
 import RTL from "./RTL";
-// material-ui theme
-const theme = createTheme({
-  typography: {
-    fontFamily: ["IRANSans", "IRANSansFa", "sans-serif"].join(","),
-  },
-  direction: "rtl",
-});
+import Theme from "./Theme";
 
 // farsi support for dayjs
 dayjs.locale("fa");
@@ -32,10 +26,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <RTL>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
+        <Theme>
           <RouteList />
-        </ThemeProvider>
+        </Theme>
       </RTL>
     </QueryClientProvider>
   );
