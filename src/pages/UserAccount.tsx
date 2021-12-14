@@ -6,10 +6,19 @@ import PageBody from "components/PageBody/PageBody";
 
 const UserAccount = () => {
   return (
-    <Box sx={{ background: "#fff", height: "100%" }}>
-      <PageHeader />
-      <PageTitle />
-      <PageBody />
+    <Box
+      sx={{
+        background: "#fff",
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <Box>
+        <PageHeader />
+        <PageTitle />
+        <PageBody />
+      </Box>
     </Box>
   );
 };

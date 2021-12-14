@@ -59,7 +59,11 @@ const SocialLinkItem = (props: Props) => {
         </Button>
       </Box>
       {isModalOpen && (
-        <DeleteConfirm deleteLink={deleteLink} link={link.social_link} />
+        <DeleteConfirm
+          deleteLink={deleteLink}
+          link={link.social_link}
+          close={() => setIsModalOpen(false)}
+        />
       )}
     </Box>
   );

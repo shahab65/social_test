@@ -8,10 +8,11 @@ import TextField from "@mui/material/TextField";
 type Props = {
   deleteLink: () => void;
   link: string;
+  close: () => void;
 };
 
 const DeleteConfirm = (props: Props) => {
-  const { deleteLink, link } = props;
+  const { deleteLink, link, close } = props;
   const [text, setText] = useState("");
   const isValid = text === "تایید";
   return (
@@ -26,6 +27,7 @@ const DeleteConfirm = (props: Props) => {
           <Button disabled={!isValid} onClick={deleteLink}>
             حذف
           </Button>
+          <Button onClick={close}>انصراف</Button>
         </Box>
       </Box>
     </Dialog>
