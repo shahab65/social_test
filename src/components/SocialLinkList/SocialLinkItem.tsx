@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import { Plus } from "components/icons";
 import Link from "@mui/material/Link";
 import { SocialLink } from "api/types";
+import { getSocialLinkName } from "../../utils";
 
 type Props = {
   link: SocialLink;
@@ -25,7 +26,7 @@ const SocialLinkItem = (props: Props) => {
     >
       <Stack direction="row" spacing={1}>
         <Box>twiter</Box>
-        <Typography>تویتر</Typography>
+        <Typography>{getSocialLinkName(link.type)}</Typography>
         <Typography>آیدی (ID)</Typography>
         <Typography>{link.social_id}</Typography>
         <Typography>لینک:</Typography>
