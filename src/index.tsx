@@ -7,13 +7,11 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import NavigateSetter from "./components/NavigateSetter";
-import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <NavigateSetter />
-      <ScrollToTop />
       <App />
     </BrowserRouter>
   </React.StrictMode>,
