@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { Plus } from "components/icons";
+import Link from "@mui/material/Link";
 
 type Props = {};
 
@@ -24,7 +25,9 @@ const SocialLinkItem = (props: Props) => {
         <Typography>آیدی (ID)</Typography>
         <Typography>@mhossiamher</Typography>
         <Typography>لینک:</Typography>
-        <Typography>https://twitter.com/mhossinher</Typography>
+        <Link href="#" underline="none">
+          https://twitter.com/mhossinher
+        </Link>
       </Stack>
       <Box>
         <Button
