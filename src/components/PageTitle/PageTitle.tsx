@@ -6,7 +6,7 @@ type Props = {};
 const PageTitle = (props: Props) => {
   const {} = props;
   return (
-    <Box sx={{ mb: 2 }}>
+    <Box sx={{ mb: 2, p: 2 }}>
       <Typography sx={{ fontWeight: "bold" }}>حساب کاربری</Typography>
       <Breads />
     </Box>

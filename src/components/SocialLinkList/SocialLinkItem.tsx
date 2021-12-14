@@ -30,6 +30,7 @@ const SocialLinkItem = (props: Props) => {
         borderRadius: 2,
         display: "flex",
         justifyContent: "space-between",
+        mb: 1,
       }}
     >
       <Stack direction="row" spacing={1}>
