@@ -6,33 +6,32 @@ import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import { Formik } from "formik";
 import linkOptions from "constants/linkOptions";
+import Axios from "api/Axios";
+import { useMutation } from "react-query";
+import { SocialLink } from "api/types";
+
 type Props = {
   onToggleForm: () => void;
 };
 
 const AddConnectionPathForm = (props: Props) => {
   const { onToggleForm } = props;
+  const mutation = useMutation(
+    (sc: { social_link: string; social_id: string }) => {
+      return Axios.post("/socials", sc);
+    }
+  );
   return (
     <Box sx={{ p: 2, border: "1px solid black" }}>
       <Typography sx={{ fontSize: 14 }}>افزودن مسیر ارتباطی</Typography>
       <Formik
-        initialValues={{ type: "", link: "", id: "" }}
+        initialValues={{ type: "", social_link: "", social_id: "" }}
         validate={(values) => {
           const errors = {};
-          // if (!values.email) {
-          //   errors.email = "Required";
-          // } else if (
-          //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          // ) {
-          //   errors.email = "Invalid email address";
-          // }
           return errors;
         }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+        onSubmit={(values) => {
+          mutation.mutate(values);
         }}
       >
         {({
@@ -79,8 +78,8 @@ const AddConnectionPathForm = (props: Props) => {
                   label="لینک"
                   variant="outlined"
                   fullWidth
-                  name={"link"}
-                  value={values.link}
+                  name={"social_link"}
+                  value={values.social_link}
                   onChange={handleChange}
                 />
 
@@ -88,8 +87,8 @@ const AddConnectionPathForm = (props: Props) => {
                   label="آی دی (ID)"
                   variant="outlined"
                   fullWidth
-                  name={"id"}
-                  value={values.id}
+                  name={"social_id"}
+                  value={values.social_id}
                   onChange={handleChange}
                 />
               </Stack>
@@ -97,6 +96,7 @@ const AddConnectionPathForm = (props: Props) => {
                 <Button
                   // onClick={onToggleForm}
                   variant="contained"
+                  type={"submit"}
                 >
                   ویرایش مسیر ارتباطی تویتر
                 </Button>
