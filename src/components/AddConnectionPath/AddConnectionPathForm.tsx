@@ -112,7 +112,7 @@ const AddConnectionPathForm = (props: Props) => {
   };
   return (
     <Box sx={{ p: 2, border: "1px solid black" }}>
-      <Typography sx={{ fontSize: 14 }}>افزودن مسیر ارتباطی</Typography>
+      <Typography sx={{ fontSize: 14 }}>{buttonText()}</Typography>
       <form onSubmit={handleSubmit}>
         <Stack
           direction="row"
