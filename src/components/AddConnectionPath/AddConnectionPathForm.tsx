@@ -19,6 +19,17 @@ const AddConnectionPathForm = (props: Props) => {
   const { onToggleForm, refetchSocialLinks } = props;
   const formik = useFormik({
     initialValues: { type: "", social_link: "", social_id: "" },
+    validate: (values) => {
+      const errors: {
+        type?: string;
+        social_link?: string;
+        social_id?: string;
+      } = {};
+      if (!values.type) errors.type = "مورد نیاز";
+      if (!values.social_link) errors.social_link = "مورد نیاز";
+      if (!values.social_id) errors.social_id = "مورد نیاز";
+      return errors;
+    },
     onSubmit: (values) => {
       mutation.mutate(values);
     },
@@ -52,7 +63,6 @@ const AddConnectionPathForm = (props: Props) => {
   return (
     <Box sx={{ p: 2, border: "1px solid black" }}>
       <Typography sx={{ fontSize: 14 }}>افزودن مسیر ارتباطی</Typography>
-
       <form onSubmit={handleSubmit}>
         <Stack
           direction="row"
@@ -69,6 +79,7 @@ const AddConnectionPathForm = (props: Props) => {
             value={values.type}
             name={"type"}
             onChange={handleChange}
+            helperText={errors.type}
           >
             {linkOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -84,6 +95,7 @@ const AddConnectionPathForm = (props: Props) => {
             name={"social_link"}
             value={values.social_link}
             onChange={handleChange}
+            helperText={errors.social_link}
           />
 
           <TextField
@@ -93,6 +105,7 @@ const AddConnectionPathForm = (props: Props) => {
             name={"social_id"}
             value={values.social_id}
             onChange={handleChange}
+            helperText={errors.social_id}
           />
         </Stack>
         <Stack direction="row-reverse" spacing={1}>
